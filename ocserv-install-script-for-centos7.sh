@@ -43,7 +43,7 @@ cd ${basepath}
 
 function ConfigEnvironmentVariable {
     #ocserv版本
-    ocserv_version="0_10_7"
+    ocserv_version="0_10_4"
     version=${1-${ocserv_version}}
     libtasn1_version=4.7
     #变量设置
@@ -167,9 +167,8 @@ _EOF_
     #下载ocserv并编译安装
     wget -t 0 -T 60 "https://github.com/mtmiller/ocserv/archive/ocserv_${version}.tar.gz" -O "ocserv-${version}.tar.gz"
     tar xf ocserv-${version}.tar.gz
-    cd ocserv-ocserv_${version}
+    cd ocserv-${version}
     sed -i 's/#define MAX_CONFIG_ENTRIES.*/#define MAX_CONFIG_ENTRIES 200/g' src/vpn.h
-    cp configure.ac configure
     ./configure && make && make install
 
     #复制配置文件样本
