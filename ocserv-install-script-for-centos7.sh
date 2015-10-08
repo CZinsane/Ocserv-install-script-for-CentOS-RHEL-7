@@ -169,6 +169,7 @@ _EOF_
     tar xf ocserv-${version}.tar.gz
     cd ocserv-ocserv_${version}
     sed -i 's/#define MAX_CONFIG_ENTRIES.*/#define MAX_CONFIG_ENTRIES 200/g' src/vpn.h
+    cp configure.ac configure
     ./configure && make && make install
 
     #复制配置文件样本
