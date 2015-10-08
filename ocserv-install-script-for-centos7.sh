@@ -166,8 +166,8 @@ _EOF_
 
     #下载ocserv并编译安装
     wget -t 0 -T 60 "https://github.com/mtmiller/ocserv/archive/ocserv_${version}.tar.gz" -O "ocserv-${version}.tar.gz"
-    tar axf ocserv-${version}.tar.gz
-    cd ocserv-ocserv-${version}
+    tar xf ocserv-${version}.tar.gz
+    cd ocserv-ocserv_0_10_7
     sed -i 's/#define MAX_CONFIG_ENTRIES.*/#define MAX_CONFIG_ENTRIES 200/g' src/vpn.h
     ./configure && make && make install
 
